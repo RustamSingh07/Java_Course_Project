@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/loginform
+    username: root
+    password: dev@123
+  mail:
+     host: smtp.gmail.com
+     password: grxwaphqtwvehoyf
+     port: 587
+     properties:
+       mail:
+         smtp:
+           auth: true
+           starttls:
+             enable: true
+     username: rdsolution7653@gmail.com
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: public
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+ 
+server:
+  port: 9095
+

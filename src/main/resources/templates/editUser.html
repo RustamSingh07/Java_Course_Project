@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="p-3 mb-2 bg-primary text-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a href="#" th:href="@{/adminScreen}" class="navbar-brand">Home</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link" th:href="@{/registration}">Create User</a>
+                    <a href="#" class="nav-item nav-link" th:href="@{/adminScreen/viewUser}">View User</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a href="#" class="nav-item nav-link" th:href="@{/logout}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card paint-card">
+                <div class="card-body">
+                    <!-- success message -->
+                    <div th:if="${param.success}">
+                        <div class="alert alert-info">Edit Successful</div>
+                    </div>
+                    <h1>Edit User</h1>
+                    <form th:action="@{/adminScreen/editUser}" method="post" th:object="${user}">
+                        <div class="mb-3">
+                            <label class="control-label" for="firstName">First Name </label>
+                            <input id="firstName" class="form-control" th:field="*{name}" required autofocus="autofocus"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="control-label" for="password">Password </label>
+                            <input id="password" class="form-control" type="password" th:field="*{password}"
+                                   required autofocus="autofocus"/>
+                        </div>
+                        <button type="submit" class="btn bg-primary text-white col-md-12">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
